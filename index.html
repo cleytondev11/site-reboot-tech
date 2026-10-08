@@ -462,7 +462,7 @@ footer a:hover{color:var(--tx)}
 
 (function () {
   var PIX = '00020126580014BR.GOV.BCB.PIX01367e158db6-1929-40ae-86d0-7484c64a9c84520400005303986540539.905802BR5923Cleyton de Souza Santos6009SAO PAULO62140510U3umYLJ8Xo630443A6';
-  var APIS = ['https://www.reboottech1.com.br/api/cadastro', 'https://reboottech1.com.br/api/cadastro'];
+  var APIS = ['https://reboot-tech.onrender.com/api/cadastro', 'https://reboot-tech-server.onrender.com/api/cadastro', 'https://www.reboottech1.com.br/api/cadastro'];
   var q = function (s) { return document.querySelector(s); };
   var atual = null, volta = null;
   function abrir(id) {
@@ -501,12 +501,14 @@ footer a:hover{color:var(--tx)}
     if (d.senha.length < 6) { er.textContent = 'A senha precisa ter ao menos 6 caracteres.'; return; }
     btn.disabled = true; btn.textContent = 'Criando…';
     // tenta o endereço com www e, se a conexão falhar, o sem www
+    // tenta cada endereço do servidor até um responder de verdade (JSON do cadastro)
     function enviar(i) {
       return fetch(APIS[i], { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+        .then(function (r) { return r.json(); })
+        .then(function (j) { if (!j || typeof j.ok === 'undefined') throw new Error('resposta'); return j; })
         .catch(function (x) { if (i + 1 < APIS.length) return enviar(i + 1); throw x; });
     }
     enviar(0)
-      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
       .then(function (r) {
         if (r && r.ok) {
           q('#cad-form').hidden = true; q('#cad-ok').hidden = false;
