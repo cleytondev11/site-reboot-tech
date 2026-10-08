@@ -233,7 +233,7 @@ footer a:hover{color:var(--tx)}
 <header class="nav" id="nav"><div class="in">
   <a href="#topo" class="logo"><i>R</i><span>Reboot <b>Tech</b></span></a>
   <nav class="links" aria-label="Seções"><a href="#recursos">Recursos</a><a href="#funcoes">Equipe</a><a href="#celular">No celular</a><a href="#plano">Plano</a><a href="#duvidas">Dúvidas</a></nav>
-  <a class="ent" href="https://reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a>
+  <a class="ent" href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a>
   <button type="button" class="btn gold" data-abrir="cad">Teste grátis</button>
 </div></header>
 
@@ -361,10 +361,10 @@ footer a:hover{color:var(--tx)}
   <h2>Sua próxima OS pode já nascer organizada.</h2>
   <p style="color:var(--dim);position:relative">Chame no WhatsApp e peça uma demonstração com os dados da sua loja.</p>
   <div class="num">(61) 99252-2517</div>
-  <div class="row"><button type="button" class="btn gold lg" data-abrir="cad">Teste grátis</button><a class="btn lg" href="https://wa.me/5561992522517?text=Ol%C3%A1!%20Quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20Reboot%20Tech." target="_blank" rel="noopener">Chamar no WhatsApp</a><a class="btn lg" href="https://reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a></div>
+  <div class="row"><button type="button" class="btn gold lg" data-abrir="cad">Teste grátis</button><a class="btn lg" href="https://wa.me/5561992522517?text=Ol%C3%A1!%20Quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20Reboot%20Tech." target="_blank" rel="noopener">Chamar no WhatsApp</a><a class="btn lg" href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a></div>
 </div></div></section>
 </main>
-<div class="wrap"><footer><span>Reboot Tech Sistema para assistência técnica</span><span><a href="https://reboottech1.com.br" target="_blank" rel="noopener">Área do cliente</a></span></footer></div>
+<div class="wrap"><footer><span>Reboot Tech Sistema para assistência técnica</span><span><a href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Área do cliente</a></span></footer></div>
 
 <div class="md" id="m-cad" role="dialog" aria-modal="true" aria-labelledby="t-cad"><div class="cx">
   <button type="button" class="x" data-fechar aria-label="Fechar">&times;</button>
@@ -386,7 +386,7 @@ footer a:hover{color:var(--tx)}
   <div id="cad-ok" hidden>
     <h3>Conta criada!</h3>
     <p class="sb" id="cad-msg"></p>
-    <a class="btn gold lg" id="cad-ir" href="https://reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a>
+    <a class="btn gold lg" id="cad-ir" href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a>
   </div>
 </div></div>
 
@@ -462,7 +462,7 @@ footer a:hover{color:var(--tx)}
 
 (function () {
   var PIX = '00020126580014BR.GOV.BCB.PIX01367e158db6-1929-40ae-86d0-7484c64a9c84520400005303986540539.905802BR5923Cleyton de Souza Santos6009SAO PAULO62140510U3umYLJ8Xo630443A6';
-  var API = 'https://reboottech1.com.br/api/cadastro';
+  var APIS = ['https://www.reboottech1.com.br/api/cadastro', 'https://reboottech1.com.br/api/cadastro'];
   var q = function (s) { return document.querySelector(s); };
   var atual = null, volta = null;
   function abrir(id) {
@@ -500,7 +500,12 @@ footer a:hover{color:var(--tx)}
     if (!/^[A-Za-z0-9._@-]{3,60}$/.test(d.login)) { er.textContent = 'Login: de 3 a 60 caracteres, sem espaços.'; return; }
     if (d.senha.length < 6) { er.textContent = 'A senha precisa ter ao menos 6 caracteres.'; return; }
     btn.disabled = true; btn.textContent = 'Criando…';
-    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+    // tenta o endereço com www e, se a conexão falhar, o sem www
+    function enviar(i) {
+      return fetch(APIS[i], { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+        .catch(function (x) { if (i + 1 < APIS.length) return enviar(i + 1); throw x; });
+    }
+    enviar(0)
       .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
       .then(function (r) {
         if (r && r.ok) {
