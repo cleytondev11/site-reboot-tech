@@ -275,6 +275,15 @@ footer a:hover{color:var(--tx)}
 @media(min-width:1021px){.pc.anual .v{font-size:clamp(40px,4.4vw,60px)}.pc.anual .off{width:70px;height:70px}.pc.anual .off b{font-size:22px}}
 .pc .v{white-space:nowrap}
 @media(min-width:1021px){.pc.mensal .v,.pc.tri .v{font-size:38px}.pc.mensal .v small,.pc.tri .v small{font-size:14px}.pc{padding-inline:26px}.pc.anual .v{font-size:clamp(40px,3.9vw,54px)}}
+
+.pc ul.todas{margin:18px 0 22px;gap:9px}
+.pc ul.todas li:first-child{background:rgba(79,201,138,.10);border:1px solid rgba(79,201,138,.30);border-radius:10px;padding:9px 11px}
+.pc ul.todas li:first-child svg{margin-top:2px}
+.todos{max-width:1040px;margin:clamp(32px,5vw,56px) auto 0;padding:clamp(22px,3.4vw,36px);border:1px solid var(--line2);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.todos .th{text-align:center;margin-bottom:22px}.todos h3{font-size:clamp(22px,3vw,30px);margin:10px 0 8px}.todos .th p{margin-inline:auto;color:var(--dim);font-size:15.5px}
+.todos ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+@media(max-width:760px){.todos ul{grid-template-columns:1fr}}
+.todos li{display:flex;gap:12px;align-items:flex-start}.todos li svg{width:20px;height:20px;color:var(--ok);flex:none;margin-top:3px}
 </style>
 
 </head><body>
@@ -377,18 +386,16 @@ footer a:hover{color:var(--tx)}
 </div></section>
 
 <section class="plan" id="plano"><div class="wrap">
-  <div class="sh ph"><h2>Tudo liberado. Escolha como pagar.</h2><p>Sem módulos extras para contratar depois. Todos os planos têm os mesmos recursos: quanto maior o período, maior o desconto.</p></div>
+  <div class="sh ph"><h2>Tudo liberado. Escolha como pagar.</h2><p>Sem módulos extras para contratar depois. <b>Todos os planos têm exatamente as mesmas funcionalidades</b>. Quanto maior o período, maior o desconto.</p></div>
   <div class="plans">
     <div class="pc mensal">
       <span class="tg">Plano mensal</span>
       <div class="v">R$ 39,90<small>/mês</small></div>
       <p class="eq">Renovação a cada 30 dias. O sistema avisa quando estiver perto de vencer.</p>
-      <ul>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg><span><b>Até 10 funcionários</b>, cada um com seu login e perfil</span></li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>OS, orçamentos, vendas, compras e estoque</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Kanban, cobranças, financeiro e comissões</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Computador, celular e notificações</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Recibos com a sua logo e suporte no WhatsApp</li>
+      <ul class="todas">
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg><span><b>Todas as funcionalidades incluídas</b>, iguais em todos os planos</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Até 10 funcionários</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Suporte pelo WhatsApp</li>
     </ul>
       <button type="button" class="btn lg" data-abrir="pix">Comprar mensal</button>
       <button type="button" class="btn lg" data-abrir="cad">Teste grátis por 3 dias</button>
@@ -400,12 +407,10 @@ footer a:hover{color:var(--tx)}
       <div class="de">De <s>R$ 119,70</s> por</div>
       <div class="v">R$ 99,70<small>/3 meses</small></div>
       <p class="eq">Economize <b>R$ 20,00</b>. Equivale a <b>R$ 33,23 por mês</b>.</p>
-      <ul>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg><span><b>Até 10 funcionários</b>, cada um com seu login e perfil</span></li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>OS, orçamentos, vendas, compras e estoque</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Kanban, cobranças, financeiro e comissões</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Computador, celular e notificações</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Recibos com a sua logo e suporte no WhatsApp</li>
+      <ul class="todas">
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg><span><b>Todas as funcionalidades incluídas</b>, iguais em todos os planos</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Até 10 funcionários</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Suporte pelo WhatsApp</li>
     </ul>
       <button type="button" class="btn lg" data-abrir="pix-tri">Comprar trimestral</button>
       <button type="button" class="btn lg" data-abrir="cad">Teste grátis por 3 dias</button>
@@ -419,7 +424,19 @@ footer a:hover{color:var(--tx)}
       <div class="v">R$ 319,99<small>/ano</small></div>
       <div class="ganho"><b>Você ganha 4 meses</b> e economiza R$ 158,81. Paga só 8 e usa 12.</div>
       <p class="eq">Equivale a <b>R$ 26,67 por mês</b>, contra R$ 39,90 no plano mensal.</p>
-      <ul>
+      <ul class="todas">
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg><span><b>Todas as funcionalidades incluídas</b>, iguais em todos os planos</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Até 10 funcionários</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Suporte pelo WhatsApp</li>
+    </ul>
+      <button type="button" class="btn gold lg brilho" data-abrir="pix-anual">Quero o plano anual</button>
+      <button type="button" class="btn lg" data-abrir="cad">Teste grátis por 3 dias</button>
+      <small class="n">Pagamento único por Pix. Depois de pagar, envie o comprovante no WhatsApp para liberar 1 ano de acesso.</small>
+    </div>
+  </div>
+  <div class="todos">
+    <div class="th"><span class="tg g">Igual em todos os planos</span><h3>Todos os planos têm as mesmas funcionalidades</h3><p>A única diferença entre mensal, trimestral e anual é o valor: quanto maior o período, menos você paga por mês. Veja o que está incluso em todos:</p></div>
+    <ul>
       <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg><span><b>Até 10 funcionários</b>, cada um com login e perfil de acesso (Administrador, Financeiro ou Atendente)</span></li>
       <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Ordens de serviço, orçamentos, vendas, compras e estoque</li>
       <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Bancada Kanban, cobranças, contas a pagar e financeiro</li>
@@ -429,10 +446,6 @@ footer a:hover{color:var(--tx)}
       <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Recibos em térmica e A4 com a sua logo, e PDF para o WhatsApp</li>
       <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Banco de dados só da sua loja e suporte pelo WhatsApp</li>
     </ul>
-      <button type="button" class="btn gold lg brilho" data-abrir="pix-anual">Quero o plano anual</button>
-      <button type="button" class="btn lg" data-abrir="cad">Teste grátis por 3 dias</button>
-      <small class="n">Pagamento único por Pix. Depois de pagar, envie o comprovante no WhatsApp para liberar 1 ano de acesso.</small>
-    </div>
   </div>
 </div></section>
 
