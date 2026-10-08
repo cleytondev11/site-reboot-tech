@@ -227,6 +227,7 @@ footer a:hover{color:var(--tx)}
 .md .code{width:100%;height:84px;resize:none;font:12px/1.4 var(--mono);color:var(--dim)}
 .md ol{margin:14px 0 0;padding-left:20px;color:var(--dim);font-size:14px}
 .md .sec{background:transparent}
+.pc .btn+.btn{margin-top:10px}
 </style>
 
 </head><body>
@@ -334,14 +335,18 @@ footer a:hover{color:var(--tx)}
     <span class="tg">Plano completo</span>
     <div class="v">R$ 39,90<small>/mês</small></div>
     <ul>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Ordens de serviço, orçamentos, vendas e estoque</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Bancada Kanban, cobranças e financeiro</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Comissões, relatórios e usuários com perfis de acesso</li>
-      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>App no celular, recibos com sua logo e suporte no WhatsApp</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg><span><b>Até 10 funcionários</b>, cada um com login e perfil de acesso (Administrador, Financeiro ou Atendente)</span></li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Ordens de serviço, orçamentos, vendas, compras e estoque</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Bancada Kanban, cobranças, contas a pagar e financeiro</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Comissões por funcionário, relatórios e dashboard com meta do mês</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Use no computador (programa para Windows) e no celular (app instalável)</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Notificações no celular de OS, vendas e estoque baixo</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Recibos em térmica e A4 com a sua logo, e PDF para o WhatsApp</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Banco de dados só da sua loja e suporte pelo WhatsApp</li>
     </ul>
     <button type="button" class="btn gold lg" data-abrir="pix">Comprar agora</button>
     <button type="button" class="btn lg" data-abrir="cad">Teste grátis</button>
-    <small class="n">Pagamento por Pix. Depois de pagar, envie o comprovante no WhatsApp para liberar o plano.</small>
+    <small class="n">Teste grátis por 3 dias, sem cartão. Pagamento por Pix. Depois de pagar, envie o comprovante no WhatsApp para liberar o plano.</small>
   </div>
 </div></section>
 
@@ -370,10 +375,11 @@ footer a:hover{color:var(--tx)}
   <button type="button" class="x" data-fechar aria-label="Fechar">&times;</button>
   <div id="cad-form">
     <h3 id="t-cad">Teste grátis</h3>
-    <p class="sb">Crie sua conta e use o sistema agora, sem cartão. Você escolhe o login e a senha.</p>
+    <p class="sb">Crie sua conta e use o sistema agora por 3 dias, sem cartão. Você escolhe o login e a senha.</p>
     <form id="f-cad" autocomplete="on" novalidate>
       <label for="c-nome">Nome completo</label><input id="c-nome" name="nome" autocomplete="name" required>
       <label for="c-email">E-mail</label><input id="c-email" name="email" type="email" autocomplete="email" required>
+      <label for="c-zap">WhatsApp</label><input id="c-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" required>
       <label for="c-loja">Nome da loja</label><input id="c-loja" name="loja" autocomplete="organization" required>
       <label for="c-login">Login</label><input id="c-login" name="login" autocomplete="username" autocapitalize="none" spellcheck="false" required>
       <label for="c-senha">Senha</label><input id="c-senha" name="senha" type="password" autocomplete="new-password" minlength="6" required>
@@ -492,10 +498,12 @@ footer a:hover{color:var(--tx)}
   var form = q('#f-cad'), er = q('#c-er'), btn = q('#c-ok');
   form.addEventListener('submit', function (e) {
     e.preventDefault(); er.textContent = ''; er.className = 'er';
-    var d = {}; ['nome', 'email', 'loja', 'login', 'senha', 'hp'].forEach(function (k) { d[k] = (form.elements[k].value || '').trim(); });
+    var d = {}; ['nome', 'email', 'whatsapp', 'loja', 'login', 'senha', 'hp'].forEach(function (k) { d[k] = (form.elements[k].value || '').trim(); });
     d.senha = form.elements.senha.value;
     if (d.nome.length < 3) { er.textContent = 'Informe seu nome completo.'; return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)) { er.textContent = 'Informe um e-mail válido.'; return; }
+    var zd = d.whatsapp.replace(/[^0-9]/g, '');
+    if (zd.length < 10 || zd.length > 13) { er.textContent = 'Informe o WhatsApp com DDD.'; return; }
     if (d.loja.length < 2) { er.textContent = 'Informe o nome da loja.'; return; }
     if (!/^[A-Za-z0-9._@-]{3,60}$/.test(d.login)) { er.textContent = 'Login: de 3 a 60 caracteres, sem espaços.'; return; }
     if (d.senha.length < 6) { er.textContent = 'A senha precisa ter ao menos 6 caracteres.'; return; }
@@ -512,7 +520,7 @@ footer a:hover{color:var(--tx)}
       .then(function (r) {
         if (r && r.ok) {
           q('#cad-form').hidden = true; q('#cad-ok').hidden = false;
-          q('#cad-msg').textContent = 'Seu teste de ' + (r.diasTeste || 7) + ' dias começou. Entre com o login "' + d.login + '" e a senha que você escolheu.';
+          q('#cad-msg').textContent = 'Seu teste de ' + (r.diasTeste || 3) + ' dias começou. Entre com o login "' + d.login + '" e a senha que você escolheu.';
         } else { er.textContent = (r && r.error) || 'Não foi possível criar a conta agora. Tente de novo ou chame no WhatsApp.'; }
       })
       .catch(function () { er.textContent = 'Sem conexão com o servidor. Tente de novo em instantes ou chame no WhatsApp: (61) 99252-2517.'; })
