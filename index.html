@@ -487,12 +487,27 @@ footer a:hover{color:var(--tx)}
 
 <section class="fim"><div class="wrap"><div class="box">
   <h2>Sua próxima OS pode já nascer organizada.</h2>
-  <p style="color:var(--dim);position:relative">Chame no WhatsApp e peça uma demonstração com os dados da sua loja.</p>
-  <div class="num">(61) 99252-2517</div>
-  <div class="row"><button type="button" class="btn gold lg" data-abrir="cad">Teste grátis</button><a class="btn lg" href="https://wa.me/5561992522517?text=Ol%C3%A1!%20Quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20Reboot%20Tech." target="_blank" rel="noopener">Chamar no WhatsApp</a><a class="btn lg" href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a></div>
+  <p style="color:var(--dim);position:relative">Teste grátis por 3 dias ou fale com o nosso suporte e peça uma demonstração com os dados da sua loja.</p>
+  <div class="row"><button type="button" class="btn gold lg" data-abrir="cad">Teste grátis</button><button type="button" class="btn lg" data-abrir="sup">Suporte e ajuda</button><a class="btn lg" href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Fazer login</a></div>
 </div></div></section>
 </main>
-<div class="wrap"><footer><span>Reboot Tech Sistema para assistência técnica</span><span><a href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Área do cliente</a></span></footer></div>
+<div class="wrap"><footer><span>Reboot Tech Sistema para assistência técnica</span><span><a href="#" data-abrir="sup">Suporte</a> &nbsp;·&nbsp; <a href="https://www.reboottech1.com.br" target="_blank" rel="noopener">Área do cliente</a></span></footer></div>
+
+<div class="md" id="m-sup" role="dialog" aria-modal="true" aria-labelledby="t-sup"><div class="cx">
+  <button type="button" class="x" data-fechar aria-label="Fechar">&times;</button>
+  <h3 id="t-sup">Suporte e ajuda</h3>
+  <p class="sb">Conte como podemos ajudar. Você será atendido pelo WhatsApp, com a sua mensagem já pronta.</p>
+  <form id="f-sup" autocomplete="on" novalidate>
+    <label for="s-ass">Assunto</label>
+    <select id="s-ass" name="assunto" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);color:var(--tx);font:16px var(--body)">
+      <option>Quero uma demonstração</option><option>Dúvida sobre os planos</option><option>Já paguei e preciso liberar o plano</option><option>Problema para entrar no sistema</option><option>Outro assunto</option>
+    </select>
+    <label for="s-nome">Seu nome</label><input id="s-nome" name="nome" autocomplete="name">
+    <label for="s-msg">Mensagem (opcional)</label><textarea id="s-msg" name="msg" rows="3" style="min-height:80px"></textarea>
+    <div class="er" id="s-er" role="alert"></div>
+    <button class="btn gold lg" type="submit">Falar com o suporte</button>
+  </form>
+</div></div>
 
 <div class="md" id="m-cad" role="dialog" aria-modal="true" aria-labelledby="t-cad"><div class="cx">
   <button type="button" class="x" data-fechar aria-label="Fechar">&times;</button>
@@ -636,6 +651,15 @@ footer a:hover{color:var(--tx)}
     var a = e.target.closest('[data-abrir]'); if (a) { e.preventDefault(); abrir(a.getAttribute('data-abrir')); return; }
     if (e.target.closest('[data-fechar]') || (e.target.classList && e.target.classList.contains('md'))) fechar();
   });
+  var fsup = q('#f-sup');
+  if (fsup) fsup.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var t = 'Olá! Suporte Reboot Tech.\nAssunto: ' + fsup.elements.assunto.value;
+    var n = (fsup.elements.nome.value || '').trim(), m = (fsup.elements.msg.value || '').trim();
+    if (n) t += '\nNome: ' + n; if (m) t += '\nMensagem: ' + m;
+    window.open('https://wa.me/5561992522517?text=' + encodeURIComponent(t), '_blank', 'noopener');
+    fechar();
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
 
   var PIX_ANUAL = '00020126580014BR.GOV.BCB.PIX01367e158db6-1929-40ae-86d0-7484c64a9c845204000053039865406319.995802BR5923Cleyton de Souza Santos6009SAO PAULO62140510U3umYLJ8Xo630428DB';
@@ -677,9 +701,9 @@ footer a:hover{color:var(--tx)}
         if (r && r.ok) {
           q('#cad-form').hidden = true; q('#cad-ok').hidden = false;
           q('#cad-msg').textContent = 'Seu teste de ' + (r.diasTeste || 3) + ' dias começou. Entre com o login "' + d.login + '" e a senha que você escolheu.';
-        } else { er.textContent = (r && r.error) || 'Não foi possível criar a conta agora. Tente de novo ou chame no WhatsApp.'; }
+        } else { er.textContent = (r && r.error) || 'Não foi possível criar a conta agora. Tente de novo ou fale com o Suporte.'; }
       })
-      .catch(function () { er.textContent = 'Sem conexão com o servidor. Tente de novo em instantes ou chame no WhatsApp: (61) 99252-2517.'; })
+      .catch(function () { er.textContent = 'Sem conexão com o servidor. Tente de novo em instantes ou fale com o Suporte.'; })
       .then(function () { btn.disabled = false; btn.textContent = 'Criar minha conta'; });
   });
 })();
