@@ -105,6 +105,7 @@ section{padding-block:clamp(56px,9vw,112px)}
 .cd::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx) var(--my),rgba(212,175,55,.14),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
 .cd:hover{border-color:var(--line2)}.cd:hover::before{opacity:1}
 .cd.w3{grid-column:span 3}.cd.w4{grid-column:span 4}
+.cd .nov{display:inline-block;margin-bottom:10px;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:1.4px;background:var(--gold2);color:#17130a}
 .cd h3{font-size:24px;font-weight:700;margin-bottom:8px}
 .cd p{color:var(--dim);font-size:15.5px}
 .cd .vis{margin-top:20px}
@@ -306,7 +307,7 @@ footer a:hover{color:var(--tx)}
     <div class="meta">
       <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Instala como app no celular</span>
       <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Recibo térmico e A4 com a sua logo</span>
-      <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Aviso pronto pelo WhatsApp</span>
+      <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 10.5l4 4 8-9"/></svg>Aviso de cada etapa pelo WhatsApp</span>
     </div>
   </div>
 
@@ -341,6 +342,12 @@ footer a:hover{color:var(--tx)}
   <div style="max-width:1100px;margin:0 auto;border:1px solid var(--line2);border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);background:#000">
     <video controls preload="metadata" playsinline poster="tour-poster.jpg" style="display:block;width:100%;height:auto"><source src="tour-reboot-tech.mp4" type="video/mp4">Seu navegador não reproduz vídeo.</video>
   </div>
+  <div style="max-width:380px;margin:46px auto 0;text-align:center">
+    <div class="sh" style="margin-bottom:18px"><h2 style="font-size:28px">Novidades: Calculadora Pro e acompanhamento da OS</h2></div>
+    <div style="border:1px solid var(--line2);border-radius:22px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);background:#000">
+      <video controls preload="metadata" playsinline poster="novidades-poster.jpg" style="display:block;width:100%;height:auto"><source src="novidades-reboot-tech.mp4" type="video/mp4">Seu navegador não reproduz vídeo.</video>
+    </div>
+  </div>
 </div></section>
 
 <section id="recursos"><div class="wrap">
@@ -350,6 +357,10 @@ footer a:hover{color:var(--tx)}
       <div class="vis mini"><div class="r"><span>Tela</span><span class="ok-t">OK</span></div><div class="r"><span>Câmera traseira</span><span class="ok-t">OK</span></div><div class="r"><span>Carregamento</span><span class="bad-t">Com defeito</span></div><div class="r"><span>Assinatura do cliente</span><span class="tg g">Coletada</span></div></div></article>
     <article class="cd w3"><h3>Bancada em quadro Kanban</h3><p>Arraste a OS entre Em análise, Aguardando peça, Em manutenção, Pronto e Entregue. O status e o financeiro acompanham.</p>
       <div class="vis mini" style="grid-template-columns:repeat(5,1fr);gap:6px;font-size:11px;text-align:center"><span>Análise<br><b class="tg">3</b></span><span>Peça<br><b class="tg">1</b></span><span>Bancada<br><b class="tg">4</b></span><span>Pronto<br><b class="tg g">2</b></span><span>Entregue<br><b class="tg">18</b></span></div></article>
+    <article class="cd w3"><span class="nov">NOVO</span><h3>Calculadora Pro</h3><p>Saiba quanto cobrar pelo serviço e quanto passar na maquininha para receber o valor certo. Tabela de preços da sua loja, regras pela peça e simulador de venda no cartão com a taxa da sua maquininha, parcela e lucro.</p>
+      <div class="vis mini"><div class="r"><span>iPhone 14 Pro Max · Tela</span><b>R$ 1.150,00</b></div><div class="r"><span>Crédito 3x · taxa 6,17%</span><b>R$ 1.225,62</b></div><div class="r"><span>Você recebe</span><span class="ok-t">R$ 1.150,00</span></div></div></article>
+    <article class="cd w3"><span class="nov">NOVO</span><h3>Cliente acompanha o conserto</h3><p>Mudou o status da OS? A mensagem sai pronta no WhatsApp do cliente com um toque. No recibo vai um QR code: o cliente acompanha o conserto sozinho, sem login e sem ligar para a loja.</p>
+      <div class="vis mini"><div class="r"><span>OS-000041 · Em manutenção</span><span class="tg">QR no recibo</span></div><div class="r"><span>Aviso ao cliente</span><span class="tg g">WhatsApp</span></div><div class="r"><span>Pronto para retirada</span><span class="ok-t">Cliente avisado</span></div></div></article>
     <article class="cd"><h3>Orçamentos</h3><p>Monte, envie em PDF e transforme em OS quando o cliente aprovar.</p>
       <div class="vis mini"><div class="r"><span>OR-000012</span><span class="tg">Aprovado</span></div><div class="r"><span>Gerar OS</span><span class="ok-t">1 toque</span></div></div></article>
     <article class="cd"><h3>Estoque e vendas</h3><p>Foto do produto na venda e no PDF. O estoque baixa sozinho e avisa quando acaba.</p>
@@ -588,11 +599,11 @@ footer a:hover{color:var(--tx)}
   });
 
   /* por função */
-  var telas = ['Dashboard', 'Clientes', 'Equipamentos', 'Ordens de Serviço', 'Bancada (Kanban)', 'Orçamentos', 'Compras', 'Estoque', 'Serviços', 'Vendas', 'Cobranças', 'Financeiro', 'Comissões', 'Relatórios', 'Usuários'];
+  var telas = ['Dashboard', 'Clientes', 'Equipamentos', 'Ordens de Serviço', 'Bancada (Kanban)', 'Orçamentos', 'Compras', 'Estoque', 'Serviços', 'Vendas', 'Calculadora Pro', 'Cobranças', 'Financeiro', 'Comissões', 'Relatórios', 'Usuários'];
   var perfis = [
     { n: 'Administrador', t: 'O dono enxerga a loja inteira.', d: 'Acesso a todas as telas, relatórios, usuários, comissões e configurações. Define a meta do mês e as regras de cada funcionário.', ok: telas },
-    { n: 'Financeiro', t: 'Quem cuida do dinheiro vê o dinheiro.', d: 'Cobranças, financeiro, caixa e comissões, sem mexer em usuários ou configurações do sistema.', ok: ['Dashboard', 'Clientes', 'Ordens de Serviço', 'Orçamentos', 'Compras', 'Vendas', 'Cobranças', 'Financeiro', 'Comissões'] },
-    { n: 'Atendente', t: 'Quem atende o balcão faz o balcão.', d: 'Cadastra clientes e equipamentos, abre OS, faz orçamentos e vendas e acompanha as cobranças. O financeiro fica protegido.', ok: ['Dashboard', 'Clientes', 'Equipamentos', 'Ordens de Serviço', 'Bancada (Kanban)', 'Orçamentos', 'Estoque', 'Serviços', 'Vendas', 'Cobranças'] }
+    { n: 'Financeiro', t: 'Quem cuida do dinheiro vê o dinheiro.', d: 'Cobranças, financeiro, caixa e comissões, sem mexer em usuários ou configurações do sistema.', ok: ['Dashboard', 'Clientes', 'Ordens de Serviço', 'Orçamentos', 'Compras', 'Vendas', 'Calculadora Pro', 'Cobranças', 'Financeiro', 'Comissões'] },
+    { n: 'Atendente', t: 'Quem atende o balcão faz o balcão.', d: 'Cadastra clientes e equipamentos, abre OS, faz orçamentos e vendas e acompanha as cobranças. O financeiro fica protegido.', ok: ['Dashboard', 'Clientes', 'Equipamentos', 'Ordens de Serviço', 'Bancada (Kanban)', 'Orçamentos', 'Estoque', 'Serviços', 'Vendas', 'Calculadora Pro', 'Cobranças'] }
   ];
   var tabs = $('#tabs');
   function perfil(i) {
